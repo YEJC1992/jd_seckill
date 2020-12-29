@@ -21,6 +21,13 @@ jobs:
     - name: Install dependencies
       run: |
         pip install -r requirements.txt
-    - name: Start job
+    - name: Run
       run: |
+        git config --local user.email "491981718@qqcom"
+        git config --local user.name "YEJC1992"
+        git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+        git pull --rebase
         python getqrcode.py
+        git add .
+        git commit -m "update by github action"
+        git push
