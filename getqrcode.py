@@ -29,7 +29,7 @@ payload = {
             't': str(int(time.time() * 1000)),
         }
 headers = {
-            'User-Agent': self.spider_session.get_user_agent(),
+            'User-Agent': global_config.getRaw('config', 'DEFAULT_USER_AGENT'),
             'Referer': 'https://passport.jd.com/new/login.aspx',
         }
 resp =requests.session().get(url=url, headers=headers, params=payload)
