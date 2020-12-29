@@ -22,6 +22,7 @@ from util import (
     open_image
 )
 
+logger.info('开始获取验证码图片')
 url = 'https://qr.m.jd.com/show'
 payload = {
             'appid': 133,
